@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Rolling Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .dice-container {
+            margin: 20px;
+        }
+        .dice-value {
+            font-size: 2em;
+            text-align: right;
+        }
+        .dice-label {
+            text-align: right;
+            display: inline-block;
+            width: 150px;
+        }
+        .readonly-field {
+            text-align: right;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body onload="rollDice()">
+    <h1>Dice Rolling Program</h1>
+    <div class="dice-container">
+        <label for="dice1" class="dice-label">Dice 1:</label>
+        <input id="dice1" type="text" class="readonly-field" readonly><br>
+
+        <label for="dice2" class="dice-label">Dice 2:</label>
+        <input id="dice2" type="text" class="readonly-field" readonly><br>
+
+        <label for="total" class="dice-label">Total:</label>
+        <input id="total" type="text" class="readonly-field" readonly><br><br>
+
+        <button id="rollButton" autofocus onclick="rollDice()">Roll Dice</button>
+    </div>
+
+    <footer>
+        <p>Environment: Node Test</p>
+        <p>Version: 2.04</p>
+    </footer>
+
+    <script>
+        function rollDice() {
+            const dice1 = Math.floor(Math.random() * 6) + 1;
+            const dice2 = Math.floor(Math.random() * 6) + 1;
+            const total = dice1 + dice2;
+
+            document.getElementById('dice1').value = dice1;
+            document.getElementById('dice2').value = dice2;
+            document.getElementById('total').value = total;
+
+            document.getElementById('rollButton').focus();
+        }
+    </script>
+</body>
+</html>
